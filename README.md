@@ -4,7 +4,7 @@
 
 - **Name:** _Sam Kempers_
 - **Student number:** _23102241_
-- **Cohort / year:** _e.g. 2026-2027_
+- **Cohort / year:** _2026-2027_
 
 ---
 
