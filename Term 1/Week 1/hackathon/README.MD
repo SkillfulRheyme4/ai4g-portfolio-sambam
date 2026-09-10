@@ -5,3 +5,6 @@ The game has two difficulty modes: Easy and Advanced, so children with different
 Our website supports SDG 4: Quality Education because it makes early programming education more accessible and engaging. It helps children learn computational thinking in a playful way, without requiring any prior coding knowledge. By offering a simple, interactive experience, the app lowers the barrier to entry for children who are just starting to learn how to think algorithmically.
 
 The website does not require prior programming knowledge. It is designed as a simple click-and-play experience, so children can start immediately. However, it does assume that the learner can see the screen, understand basic English or Dutch, and has access to a computer/tablet and a internet connection. Because of this, some users with visual impairments, limited device access, or reading difficulties may be excluded.
+
+The website can be accessed by the following link;
+https://skillfulrheyme4-ai4g-qx21.bolt.host/
