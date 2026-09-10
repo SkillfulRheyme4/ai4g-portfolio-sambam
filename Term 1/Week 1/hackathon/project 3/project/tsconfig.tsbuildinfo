@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/advancedcodepanel.tsx","./src/components/easycommandpanel.tsx","./src/components/feedbackpanel.tsx","./src/components/mazerenderer.tsx","./src/components/tutorial.tsx","./src/context/languagecontext.tsx","./src/game/engine.ts","./src/game/mazes.ts","./src/game/parser.ts","./src/game/translations.ts"],"version":"5.9.3"}
