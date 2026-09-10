@@ -27,6 +27,7 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 Robot Maze Quest
 
 **My pair partner:**
+Kadir Güçlu
 
 **Tool we had to use:**
 bolt.new
