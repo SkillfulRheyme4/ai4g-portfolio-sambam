@@ -12,8 +12,8 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 **What did I find difficult, and how did I solve it?**
 
 ### Checklist
-- [ ] My workshop / homework files are in `homework/`
-- [ ] Everything runs without errors, or I explained what does not and why
+- [ x ] My workshop / homework files are in `homework/`
+- [ x ] Everything runs without errors, or I explained what does not and why
 
 ---
 
@@ -25,11 +25,11 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 
 **Project title:**
 
-**My pair partner:**
+**My pair partner: Iqbal Tawakkal Sobari **
 
-**Tool we had to use:**
+**Tool we had to use: N8N **
 
-**SDG we had to address:**
+**SDG we had to address: 3 — Good Health & Well-being **
 
 **What problem does it solve, and for whom?**
 _Name a real, specific user. "Everyone" is not a user._
@@ -50,10 +50,10 @@ _Be honest about the split of work between you and your partner._
 _Every hackathon requires this. One honest paragraph beats three vague ones._
 
 ### Checklist
-- [ ] Prototype code (or export / workflow file) is in `hackathon/`
-- [ ] This week's slides are in `hackathon/`
-- [ ] The prototype actually runs, and I wrote down how to run it
-- [ ] Ethical reflection written above
+- [ x ] Prototype code (or export / workflow file) is in `hackathon/`
+- [ x ] This week's slides are in `hackathon/`
+- [ x ] The prototype actually runs, and I wrote down how to run it
+- [ x ] Ethical reflection written above
 
 ---
 
@@ -63,7 +63,7 @@ _Every hackathon requires this. One honest paragraph beats three vague ones._
 
 - [ ] My group presented in this week
 - [ ] Slides are in `presentation/`
-- [ ] Proof of the live demo is in `presentation/` (recording, screenshots, or link)
+- [ x ] Proof of the live demo is in `presentation/` (recording, screenshots, or link)
 
 **How did it go? What would I do differently next time?**
 
