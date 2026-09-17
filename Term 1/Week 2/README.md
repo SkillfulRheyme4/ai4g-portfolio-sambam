@@ -38,7 +38,7 @@ _Name a real, specific user. "Everyone" is not a user._
 _Two or three sentences. What can a user actually do with it?_
 
 **Link to the live thing (if any):**
-_Deployed URL, workflow export, video demo - whatever proves it works._
+(https://youtu.be/0RExyofuKO0)
 
 **How do I run it?**
 _Short instructions so someone else can start it._
