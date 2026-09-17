@@ -70,13 +70,14 @@ We would trust this system because it provides information based on a location a
 - [ ] Slides are in `presentation/`
 - [ x ] Proof of the live demo is in `presentation/` (recording, screenshots, or link)
 
-**How did it go? What would I do differently next time?**
+**How did it go? What would you do differently next time?**
+I would first check if the data you are interested in using is actually relevant and can be used for the purposes you are going to use it for.
 
 ---
 
 ## 4. Reflection
 
 **What is the most important thing I learned this week?**
-
+How easy accessible N8N are. AI understands them well. It is not much work to progress our idea.
 **Where does this connect to "AI for Good"?**
 _One concrete link to ethics, sustainability or social impact._
