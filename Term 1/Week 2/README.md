@@ -25,11 +25,11 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 
 **Project title:**
 
-**My pair partner: Iqbal Tawakkal Sobari **
+**My pair partner: Iqbal Tawakkal Sobari**
 
-**Tool we had to use: N8N **
+**Tool we had to use: N8N**
 
-**SDG we had to address: 3 — Good Health & Well-being **
+**SDG we had to address: 3 — Good Health & Well-being**
 
 **What problem does it solve, and for whom?**
 _Name a real, specific user. "Everyone" is not a user._
