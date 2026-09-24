@@ -55,10 +55,10 @@ _Short instructions so someone else can start it._
 The main risk of ClearForMe is that Claude can make mistakes when simplifying government texts. It could leave out or incorrectly explain important information such as deadlines, amounts or required actions. This could especially harm the people our tool is designed for, because someone who already finds the original text difficult may not notice that the AI explanation is wrong. There is also a privacy risk because users might paste personal information from real government letters into the app. To reduce these risks, ClearForMe warns users that AI can make mistakes, keeps the original text available for comparison, and asks users to remove personal information before sending the text to Claude. ClearForMe should therefore be used as a tool to help understand a text, not as a replacement for the original document or professional advice.
 
 ### Checklist
-- [x] Prototype code (or export / workflow file) is in `hackathon/`
-- [x] This week's slides are in `hackathon/`
-- [x] The prototype actually runs, and I wrote down how to run it
-- [x] Ethical reflection written above
+- [ x ] Prototype code (or export / workflow file) is in `hackathon/`
+- [ x ] This week's slides are in `hackathon/`
+- [ x ] The prototype actually runs, and I wrote down how to run it
+- [ x ] Ethical reflection written above
 
 ---
 
@@ -67,8 +67,8 @@ The main risk of ClearForMe is that Claude can make mistakes when simplifying go
 *Only fill this in for the week your group was selected to present. You need at least **one** of these across the whole term.*
 
 - [ ] My group presented in this week
-- [ ] Slides are in `presentation/`
-- [ ] Proof of the live demo is in `presentation/` (recording, screenshots, or link)
+- [ x ] Slides are in `presentation/`
+- [ x ] Proof of the live demo is in `presentation/` (recording, screenshots, or link)
 
 **How did it go? What would I do differently next time?**
 
