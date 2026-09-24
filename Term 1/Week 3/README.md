@@ -45,7 +45,8 @@ We built a web app where users can paste a difficult Dutch government text or li
 _Deployed URL, workflow export, video demo - whatever proves it works._
 
 **How do I run it?**
-_Short instructions so someone else can start it._
+We have created a file to run the program called, run.bat.
+Whenever the folder is opened you can open the terminal and run the following command; .\run.bat
 
 **Who did what?**
   Whenever we worked at the product we sat together, irl or by teams. We let Claude do the coding with clear instructions given by us.
