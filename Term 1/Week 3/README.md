@@ -39,7 +39,7 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 ClearForMe helps adults in the Netherlands who have difficulty understanding complex Dutch government texts. Government letters can contain difficult words, long sentences and important information about deadlines or actions, which can make it harder for some people to understand what they need to do
 
 **What did you build?**
-We built a web app where users can paste a difficult Dutch government text. ClearForMe uses Claude AI to explain the text in simple Dutch and shows a simple explanation, what the user needs to do, important dates and details, and explanations of difficult words.
+We built a web app where users can paste a difficult Dutch government text or link. ClearForMe uses Claude AI to explain the text in simple Dutch and shows a simple explanation, what the user needs to do, important dates and details, and explanations of difficult words.
 
 **Link to the live thing (if any):**
 _Deployed URL, workflow export, video demo - whatever proves it works._
