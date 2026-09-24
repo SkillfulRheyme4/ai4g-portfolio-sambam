@@ -42,7 +42,7 @@ ClearForMe helps adults who have difficulty understanding complex Dutch or Engli
 We built a web app where users can paste a difficult Dutch or English text or link. ClearForMe uses AI to explain the text in simple Dutch or English and shows a simple explanation, what the user needs to do, important dates and details, and explanations of difficult words.
 
 **Link to the live thing (if any):**
-_Deployed URL, workflow export, video demo - whatever proves it works._
+https://youtu.be/MnZe92lbVU8
 
 **How do I run it?**
 We have created a file to run the program called, run.bat.
