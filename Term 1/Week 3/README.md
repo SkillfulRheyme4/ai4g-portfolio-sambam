@@ -25,12 +25,16 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 
 **Project title:**
   ClearForMe
+  
 **My pair partner:**
   Meggie Raaphorst
+  
 **Tool we had to use:**
   Python and an AI of choice.
+  
 **SDG we had to address:**
   SDG 10
+  
 **What problem does it solve, and for whom?**
 ClearForMe helps adults in the Netherlands who have difficulty understanding complex Dutch government texts. Government letters can contain difficult words, long sentences and important information about deadlines or actions, which can make it harder for some people to understand what they need to do
 
