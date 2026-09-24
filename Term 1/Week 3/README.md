@@ -36,10 +36,10 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
   SDG 10
   
 **What problem does it solve, and for whom?**
-ClearForMe helps adults in the Netherlands who have difficulty understanding complex Dutch government texts. Government letters can contain difficult words, long sentences and important information about deadlines or actions, which can make it harder for some people to understand what they need to do
+ClearForMe helps adults in the Netherlands who have difficulty understanding complex Dutch or English government texts. Government letters can contain difficult words, long sentences and important information about deadlines or actions, which can make it harder for some people to understand what they need to do
 
 **What did you build?**
-We built a web app where users can paste a difficult Dutch government text or link. ClearForMe uses Claude AI to explain the text in simple Dutch and shows a simple explanation, what the user needs to do, important dates and details, and explanations of difficult words.
+We built a web app where users can paste a difficult Dutch government text or link. ClearForMe uses AI to explain the text in simple Dutch or English and shows a simple explanation, what the user needs to do, important dates and details, and explanations of difficult words.
 
 **Link to the live thing (if any):**
 _Deployed URL, workflow export, video demo - whatever proves it works._
@@ -53,7 +53,7 @@ Whenever the folder is opened you can open the terminal and run the following co
   Sam provided the Demo video, while Meggie made the presentation. There was not an imbalance during our collaboration.
 
 **Ethical reflection - what are the risks of your tool? Who could it harm?**
-The main risk of ClearForMe is that Claude can make mistakes when simplifying government texts. It could leave out or incorrectly explain important information such as deadlines, amounts or required actions. This could especially harm the people our tool is designed for, because someone who already finds the original text difficult may not notice that the AI explanation is wrong. There is also a privacy risk because users might paste personal information from real government letters into the app. To reduce these risks, ClearForMe warns users that AI can make mistakes, keeps the original text available for comparison, and asks users to remove personal information before sending the text to Claude. ClearForMe should therefore be used as a tool to help understand a text, not as a replacement for the original document or professional advice.
+The main risk of ClearForMe is that AI can make mistakes when simplifying government texts. It could leave out or incorrectly explain important information such as deadlines, amounts or required actions. This could especially harm the people our tool is designed for, because someone who already finds the original text difficult may not notice that the AI explanation is wrong. There is also a privacy risk because users might paste personal information from real government letters into the app. To reduce these risks, ClearForMe warns users that AI can make mistakes, keeps the original text available for comparison, and asks users to remove personal information before sending the text to Claude. ClearForMe should therefore be used as a tool to help understand a text, not as a replacement for the original document or professional advice.
 
 ### Checklist
 - [ x ] Prototype code (or export / workflow file) is in `hackathon/`
