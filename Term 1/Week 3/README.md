@@ -48,13 +48,13 @@ _Short instructions so someone else can start it._
   Sam provided the Demo video, while Meggie made the presentation. There was not an imbalance during our collaboration.
 
 **Ethical reflection - what are the risks of your tool? Who could it harm?**
-_Every hackathon requires this. One honest paragraph beats three vague ones._
+The main risk of ClearForMe is that Claude can make mistakes when simplifying government texts. It could leave out or incorrectly explain important information such as deadlines, amounts or required actions. This could especially harm the people our tool is designed for, because someone who already finds the original text difficult may not notice that the AI explanation is wrong. There is also a privacy risk because users might paste personal information from real government letters into the app. To reduce these risks, ClearForMe warns users that AI can make mistakes, keeps the original text available for comparison, and asks users to remove personal information before sending the text to Claude. ClearForMe should therefore be used as a tool to help understand a text, not as a replacement for the original document or professional advice.
 
 ### Checklist
-- [ ] Prototype code (or export / workflow file) is in `hackathon/`
-- [ ] This week's slides are in `hackathon/`
-- [ ] The prototype actually runs, and I wrote down how to run it
-- [ ] Ethical reflection written above
+- [x] Prototype code (or export / workflow file) is in `hackathon/`
+- [x] This week's slides are in `hackathon/`
+- [x] The prototype actually runs, and I wrote down how to run it
+- [x] Ethical reflection written above
 
 ---
 
