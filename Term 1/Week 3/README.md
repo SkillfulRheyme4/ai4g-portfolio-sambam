@@ -12,8 +12,8 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 **What did I find difficult, and how did I solve it?**
 
 ### Checklist
-- [ ] My workshop / homework files are in `homework/`
-- [ ] Everything runs without errors, or I explained what does not and why
+- [ x ] My workshop / homework files are in `homework/`
+- [ x ] Everything runs without errors, or I explained what does not and why
 
 ---
 
@@ -24,18 +24,18 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 > Write them down here once you know them.
 
 **Project title:**
-
+  ClearForMe
 **My pair partner:**
-
+  Meggie Raaphorst
 **Tool we had to use:**
-
+  Python and an AI of choice.
 **SDG we had to address:**
-
+  SDG 10
 **What problem does it solve, and for whom?**
-_Name a real, specific user. "Everyone" is not a user._
+ClearForMe helps adults in the Netherlands who have difficulty understanding complex Dutch government texts. Government letters can contain difficult words, long sentences and important information about deadlines or actions, which can make it harder for some people to understand what they need to do
 
 **What did you build?**
-_Two or three sentences. What can a user actually do with it?_
+We built a web app where users can paste a difficult Dutch government text. ClearForMe uses Claude AI to explain the text in simple Dutch and shows a simple explanation, what the user needs to do, important dates and details, and explanations of difficult words.
 
 **Link to the live thing (if any):**
 _Deployed URL, workflow export, video demo - whatever proves it works._
@@ -44,7 +44,8 @@ _Deployed URL, workflow export, video demo - whatever proves it works._
 _Short instructions so someone else can start it._
 
 **Who did what?**
-_Be honest about the split of work between you and your partner._
+  Whenever we worked at the product we sat together, irl or by teams. We let Claude do the coding with clear instructions given by us.
+  Sam provided the Demo video, while Meggie made the presentation. There was not an imbalance during our collaboration.
 
 **Ethical reflection - what are the risks of your tool? Who could it harm?**
 _Every hackathon requires this. One honest paragraph beats three vague ones._
