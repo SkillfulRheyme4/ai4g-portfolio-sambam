@@ -1,0 +1,21 @@
+[theme]
+# Always light, with fixed colours, so contrast stays WCAG AA on every device.
+base = "light"
+primaryColor = "#1D4E89"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F2F5F9"
+textColor = "#1A1A1A"
+font = "sans-serif"
+baseFontSize = 18
+
+[client]
+# Hide developer menus: this app is for the public, not for developers.
+toolbarMode = "minimal"
+
+[browser]
+# Do not send usage statistics to Streamlit.
+gatherUsageStats = false
+
+[server]
+# Don't ask for an e-mail address in the terminal the first time the app starts.
+showEmailPrompt = false

@@ -1,0 +1,5 @@
+# Let git handle line endings, but keep the start scripts in the form their system needs.
+* text=auto
+*.bat text eol=crlf
+*.command text eol=lf
+*.sh text eol=lf
