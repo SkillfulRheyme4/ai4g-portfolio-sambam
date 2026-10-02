@@ -1,0 +1,3749 @@
+{
+  "id": "e9799aff-527d-417a-9bda-76fd7f34a09f",
+  "revision": 0,
+  "last_node_id": 217,
+  "last_link_id": 324,
+  "nodes": [
+    {
+      "id": 116,
+      "type": "MarkdownNote",
+      "pos": [
+        -2080,
+        4840
+      ],
+      "size": [
+        450,
+        740
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: MiniMax H3",
+      "properties": {},
+      "widgets_values": [
+        "## MiniMax H3\n\n[MiniMax H3](https://www.minimax.io/blog/minimax-h3) is MiniMax's general-purpose, omni-modal generation model. It jointly understands text, image, video, and audio, and generates video with **native stereo audio**: voice, sound effects, and music are modeled jointly in a single forward pass, not layered on afterward. Output is up to 2K resolution, 24fps, and up to about 15 seconds.\n\n## ComfyUI links\n- [ComfyUI#15224](https://github.com/Comfy-Org/ComfyUI/pull/15224)\n- [🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n## About this workflow\n\n**Key inputs**\n\n- **prompt**: describe the shots, camera moves, and the accompanying audio (dialogue, SFX, music) in one block\n- **width / height**: set via Resolution Selector. H3's native canvas is a 768px short edge, capped at 768x1344 pixels, rounded to a multiple of 32\n- **duration (seconds)**: converted to a valid frame `length` by the Math Expression node, snapping up to the model's 17-frame-per-block (17k+5) grid at 24fps\n"
+      ],
+      "widgets_values_named": {
+        "text": "## MiniMax H3\n\n[MiniMax H3](https://www.minimax.io/blog/minimax-h3) is MiniMax's general-purpose, omni-modal generation model. It jointly understands text, image, video, and audio, and generates video with **native stereo audio**: voice, sound effects, and music are modeled jointly in a single forward pass, not layered on afterward. Output is up to 2K resolution, 24fps, and up to about 15 seconds.\n\n## ComfyUI links\n- [ComfyUI#15224](https://github.com/Comfy-Org/ComfyUI/pull/15224)\n- [🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n## About this workflow\n\n**Key inputs**\n\n- **prompt**: describe the shots, camera moves, and the accompanying audio (dialogue, SFX, music) in one block\n- **width / height**: set via Resolution Selector. H3's native canvas is a 768px short edge, capped at 768x1344 pixels, rounded to a multiple of 32\n- **duration (seconds)**: converted to a valid frame `length` by the Math Expression node, snapping up to the model's 17-frame-per-block (17k+5) grid at 24fps\n"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 117,
+      "type": "MarkdownNote",
+      "pos": [
+        -2550,
+        4840
+      ],
+      "size": [
+        440,
+        823.8125
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Model Links",
+      "properties": {},
+      "widgets_values": [
+        "Guide: [Subgraph](https://docs.comfy.org/interface/features/subgraph)\n\n## Model Links\n\n- [Hugging Face:Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n- [ModelScope:Comfy-Org/MiniMax-H3](https://modelscope.cn/models/Comfy-Org/MiniMax-H3)\n\n**vae**\n\n- [minimax_h3_video_vae_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors) (2.62 GB)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors) (577.2 MB)\n\n**diffusion_models**\n\n- [minimax_h3_fl2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors) (19.53 GB)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors) (14.61 GB)\n\n**loras**\n\n- 8 steps:  [minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors](https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/main/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors) (1.82 GB)\n-  4 steps: [minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors) (1.82 GB)\n\n**embeddings**\n\n- [10 style embeddings](https://huggingface.co/Comfy-Org/MiniMax-H3/tree/main/embeddings) (`minimaxh3_*.safetensors`), for example `minimaxh3_art_is_explosion`\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_int8_convrot.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors\n│   ├── 📂 text_encoders/\n│   │   └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n│   ├── 📂 loras/\n│   │   └── minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors\n│   └── 📂 embeddings/\n│       └── minimaxh3_art_is_explosion.safetensors\n```\n\n## Using Prompt Embeddings\n\nPrompt embeddings (supported since [ComfyUI#15697](https://github.com/Comfy-Org/ComfyUI/pull/15697)) add reusable style tokens to your prompt. Download one or more embeddings from the folder above into `ComfyUI/models/embeddings/`, then reference one in the prompt text with the `embedding:` prefix and the filename without its extension, for example:\n\n`embedding:minimaxh3_art_is_explosion`\n\nUsing an embedding is optional and the template runs fine without one.\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      ],
+      "widgets_values_named": {
+        "text": "Guide: [Subgraph](https://docs.comfy.org/interface/features/subgraph)\n\n## Model Links\n\n- [Hugging Face:Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n- [ModelScope:Comfy-Org/MiniMax-H3](https://modelscope.cn/models/Comfy-Org/MiniMax-H3)\n\n**vae**\n\n- [minimax_h3_video_vae_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors) (2.62 GB)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors) (577.2 MB)\n\n**diffusion_models**\n\n- [minimax_h3_fl2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors) (19.53 GB)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors) (14.61 GB)\n\n**loras**\n\n- 8 steps:  [minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors](https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/main/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors) (1.82 GB)\n-  4 steps: [minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors) (1.82 GB)\n\n**embeddings**\n\n- [10 style embeddings](https://huggingface.co/Comfy-Org/MiniMax-H3/tree/main/embeddings) (`minimaxh3_*.safetensors`), for example `minimaxh3_art_is_explosion`\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_int8_convrot.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors\n│   ├── 📂 text_encoders/\n│   │   └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n│   ├── 📂 loras/\n│   │   └── minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors\n│   └── 📂 embeddings/\n│       └── minimaxh3_art_is_explosion.safetensors\n```\n\n## Using Prompt Embeddings\n\nPrompt embeddings (supported since [ComfyUI#15697](https://github.com/Comfy-Org/ComfyUI/pull/15697)) add reusable style tokens to your prompt. Download one or more embeddings from the folder above into `ComfyUI/models/embeddings/`, then reference one in the prompt text with the `embedding:` prefix and the filename without its extension, for example:\n\n`embedding:minimaxh3_art_is_explosion`\n\nUsing an embedding is optional and the template runs fine without one.\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 118,
+      "type": "MarkdownNote",
+      "pos": [
+        -1570,
+        5460
+      ],
+      "size": [
+        310,
+        390
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Size Settings Reference",
+      "properties": {},
+      "widgets_values": [
+        "| megapixels | Aspect | Output (multiple=32) |\n|---|---|---|\n| 0.2 | 16:9 | 608 x 352 |\n| 0.3 | 16:9 | 736 x 416 |\n| 0.4 | 16:9 | 864 x 480 |\n| 0.5 | 16:9 | 960 x 544 |\n| 0.6 | 16:9 | 1056 x 608 |\n| 0.7 | 16:9 | 1152 x 640 |\n| 0.8 | 16:9 | 1216 x 672 |\n| 0.9 | 16:9 | 1280 x 736 |\n| 0.98 | 16:9 | 1344 x 768 (official 768p) |\n"
+      ],
+      "widgets_values_named": {
+        "text": "| megapixels | Aspect | Output (multiple=32) |\n|---|---|---|\n| 0.2 | 16:9 | 608 x 352 |\n| 0.3 | 16:9 | 736 x 416 |\n| 0.4 | 16:9 | 864 x 480 |\n| 0.5 | 16:9 | 960 x 544 |\n| 0.6 | 16:9 | 1056 x 608 |\n| 0.7 | 16:9 | 1152 x 640 |\n| 0.8 | 16:9 | 1216 x 672 |\n| 0.9 | 16:9 | 1280 x 736 |\n| 0.98 | 16:9 | 1344 x 768 (official 768p) |\n"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 115,
+      "type": "ResolutionSelector",
+      "pos": [
+        -1550,
+        5220
+      ],
+      "size": [
+        270,
+        170
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "showAdvanced": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            300,
+            303,
+            306,
+            309,
+            312,
+            315,
+            318,
+            321
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            301,
+            304,
+            307,
+            310,
+            313,
+            316,
+            319,
+            322
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        1.0,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 1.0,
+        "multiple": 32
+      }
+    },
+    {
+      "id": 200,
+      "type": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+      "pos": [
+        -1180,
+        4840
+      ],
+      "size": [
+        480,
+        630
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 300
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 301
+        },
+        {
+          "label": "duration",
+          "name": "value_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "audio_vae",
+          "name": "vae_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_mode",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_model_strength",
+          "name": "strength_model_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_steps",
+          "name": "value_2",
+          "type": "INT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            302
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: a busy European old-town street at morning rush hour in spring 2020, just before lockdown. Four-storey brick and plaster facades with shop fronts, a tram line down the middle, cobbled pavement. A tram passes, cars and delivery vans queue, cyclists weave through, crowds of commuters walk fast on both pavements. A passenger airplane crosses low through a hazy grey sky above the rooftops, leaving a contrail. Grey overcast light, light smog haze, busy and slightly stressful.\n\nCamera: locked-off tripod wide shot at eye level from the pavement, looking down the length of the street, no camera movement. One continuous shot, no cuts.\n\nAudio: loud city ambience, traffic rumble, tram bell, footsteps, distant jet engine. No music, no dialogue, no voices.",
+        1344,
+        768,
+        4.0,
+        20200401,
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors",
+        false,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        1,
+        8
+      ],
+      "widgets_values_named": {
+        "prompt": "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: a busy European old-town street at morning rush hour in spring 2020, just before lockdown. Four-storey brick and plaster facades with shop fronts, a tram line down the middle, cobbled pavement. A tram passes, cars and delivery vans queue, cyclists weave through, crowds of commuters walk fast on both pavements. A passenger airplane crosses low through a hazy grey sky above the rooftops, leaving a contrail. Grey overcast light, light smog haze, busy and slightly stressful.\n\nCamera: locked-off tripod wide shot at eye level from the pavement, looking down the length of the street, no camera movement. One continuous shot, no cuts.\n\nAudio: loud city ambience, traffic rumble, tram bell, footsteps, distant jet engine. No music, no dialogue, no voices.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 4.0,
+        "noise_seed": 20200401,
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "value": false,
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model_1": 1,
+        "value_2": 8
+      },
+      "title": "Shot 01 — Rush"
+    },
+    {
+      "id": 201,
+      "type": "SaveVideo",
+      "pos": [
+        -660,
+        4840
+      ],
+      "size": [
+        1070,
+        357.875
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 302
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "the_pause/final/shot01",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "the_pause/final/shot01",
+        "format": "auto",
+        "codec": "auto"
+      },
+      "title": "Save Shot 01"
+    },
+    {
+      "id": 202,
+      "type": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+      "pos": [
+        540,
+        4840
+      ],
+      "size": [
+        480,
+        630
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 303
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 304
+        },
+        {
+          "label": "duration",
+          "name": "value_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "audio_vae",
+          "name": "vae_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_mode",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_model_strength",
+          "name": "strength_model_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_steps",
+          "name": "value_2",
+          "type": "INT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            305
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: the same European old-town street during the spring 2020 lockdown, completely empty. Four-storey brick and plaster facades, shop shutters pulled down, a tram line down the middle with no tram, cobbled pavement with no people, no cars, no bicycles. Soft pale morning light, very still. A few pigeons walk on the empty tram tracks. On the second floor, one window is lit and a lone person stands behind the glass, looking down at the empty street.\n\nCamera: locked-off tripod wide shot at eye level from the pavement, looking down the length of the street, no camera movement. One continuous shot, no cuts.\n\nAudio: almost silent, faint wind, a few birds, pigeon wings. No traffic, no music, no dialogue, no voices.",
+        1344,
+        768,
+        4.0,
+        20200402,
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors",
+        false,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        1,
+        8
+      ],
+      "widgets_values_named": {
+        "prompt": "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: the same European old-town street during the spring 2020 lockdown, completely empty. Four-storey brick and plaster facades, shop shutters pulled down, a tram line down the middle with no tram, cobbled pavement with no people, no cars, no bicycles. Soft pale morning light, very still. A few pigeons walk on the empty tram tracks. On the second floor, one window is lit and a lone person stands behind the glass, looking down at the empty street.\n\nCamera: locked-off tripod wide shot at eye level from the pavement, looking down the length of the street, no camera movement. One continuous shot, no cuts.\n\nAudio: almost silent, faint wind, a few birds, pigeon wings. No traffic, no music, no dialogue, no voices.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 4.0,
+        "noise_seed": 20200402,
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "value": false,
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model_1": 1,
+        "value_2": 8
+      },
+      "title": "Shot 02 — Stillness"
+    },
+    {
+      "id": 203,
+      "type": "SaveVideo",
+      "pos": [
+        1060,
+        4840
+      ],
+      "size": [
+        1070,
+        357.875
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 305
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "the_pause/final/shot02",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "the_pause/final/shot02",
+        "format": "auto",
+        "codec": "auto"
+      },
+      "title": "Save Shot 02"
+    },
+    {
+      "id": 204,
+      "type": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+      "pos": [
+        -1180,
+        5600
+      ],
+      "size": [
+        480,
+        630
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 306
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 307
+        },
+        {
+          "label": "duration",
+          "name": "value_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "audio_vae",
+          "name": "vae_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_mode",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_model_strength",
+          "name": "strength_model_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_steps",
+          "name": "value_2",
+          "type": "INT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            308
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: spring 2020 lockdown in a European city. From the empty old-town street the view rises above the brick rooftops and chimneys, revealing a large green park and a forest at the edge of the city under a clear blue sky with no airplanes and no contrails. A flock of small birds lifts off from a rooftop and flies toward the trees. Fresh, clear, quiet morning.\n\nCamera: smooth continuous crane-up from rooftop level, then a slow forward glide toward the green park. One continuous shot, no cuts.\n\nAudio: birdsong rising, light wind, no traffic. No music, no dialogue, no voices.",
+        1344,
+        768,
+        4.0,
+        20200403,
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors",
+        false,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        1,
+        8
+      ],
+      "widgets_values_named": {
+        "prompt": "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: spring 2020 lockdown in a European city. From the empty old-town street the view rises above the brick rooftops and chimneys, revealing a large green park and a forest at the edge of the city under a clear blue sky with no airplanes and no contrails. A flock of small birds lifts off from a rooftop and flies toward the trees. Fresh, clear, quiet morning.\n\nCamera: smooth continuous crane-up from rooftop level, then a slow forward glide toward the green park. One continuous shot, no cuts.\n\nAudio: birdsong rising, light wind, no traffic. No music, no dialogue, no voices.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 4.0,
+        "noise_seed": 20200403,
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "value": false,
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model_1": 1,
+        "value_2": 8
+      },
+      "title": "Shot 03 — Outside"
+    },
+    {
+      "id": 205,
+      "type": "SaveVideo",
+      "pos": [
+        -660,
+        5600
+      ],
+      "size": [
+        1070,
+        357.875
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 308
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "the_pause/final/shot03",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "the_pause/final/shot03",
+        "format": "auto",
+        "codec": "auto"
+      },
+      "title": "Save Shot 03"
+    },
+    {
+      "id": 206,
+      "type": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+      "pos": [
+        540,
+        5600
+      ],
+      "size": [
+        480,
+        630
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 309
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 310
+        },
+        {
+          "label": "duration",
+          "name": "value_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "audio_vae",
+          "name": "vae_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_mode",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_model_strength",
+          "name": "strength_model_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_steps",
+          "name": "value_2",
+          "type": "INT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            311
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "Realistic live-action wildlife documentary look, cinematic, natural light, slight film grain, sharp focus, anatomically correct animals.\n\nScene: dawn in spring 2020, an empty two-lane asphalt country road along the edge of a European beech forest, light mist over the fields. No cars at all. One adult red deer hind walks slowly and calmly across the road from left to right, seen clearly in side profile, at a steady natural walking pace. Her four slender legs move in a correct, natural deer gait, each hoof landing cleanly on the asphalt, legs stay fully visible and never overlap or blur. On the grass verge behind her, a red fox sits still and watches. Golden low sunlight, dew on the grass, peaceful.\n\nCamera: locked-off medium-wide shot from the roadside at deer height, road running straight across the frame, the deer large and centred in frame, telephoto lens, no camera movement. One continuous shot, no cuts, smooth natural motion.\n\nAudio: birdsong, soft hooves on asphalt, rustling grass. No traffic, no music, no dialogue, no voices.",
+        1344,
+        768,
+        4.0,
+        20200414,
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors",
+        false,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        1,
+        8
+      ],
+      "widgets_values_named": {
+        "prompt": "Realistic live-action wildlife documentary look, cinematic, natural light, slight film grain, sharp focus, anatomically correct animals.\n\nScene: dawn in spring 2020, an empty two-lane asphalt country road along the edge of a European beech forest, light mist over the fields. No cars at all. One adult red deer hind walks slowly and calmly across the road from left to right, seen clearly in side profile, at a steady natural walking pace. Her four slender legs move in a correct, natural deer gait, each hoof landing cleanly on the asphalt, legs stay fully visible and never overlap or blur. On the grass verge behind her, a red fox sits still and watches. Golden low sunlight, dew on the grass, peaceful.\n\nCamera: locked-off medium-wide shot from the roadside at deer height, road running straight across the frame, the deer large and centred in frame, telephoto lens, no camera movement. One continuous shot, no cuts, smooth natural motion.\n\nAudio: birdsong, soft hooves on asphalt, rustling grass. No traffic, no music, no dialogue, no voices.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 4.0,
+        "noise_seed": 20200414,
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "value": false,
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model_1": 1,
+        "value_2": 8
+      },
+      "title": "Shot 04 — Roaming"
+    },
+    {
+      "id": 207,
+      "type": "SaveVideo",
+      "pos": [
+        1060,
+        5600
+      ],
+      "size": [
+        1070,
+        357.875
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 311
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "the_pause/final/shot04",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "the_pause/final/shot04",
+        "format": "auto",
+        "codec": "auto"
+      },
+      "title": "Save Shot 04"
+    },
+    {
+      "id": 208,
+      "type": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+      "pos": [
+        -1180,
+        6360
+      ],
+      "size": [
+        480,
+        630
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 312
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 313
+        },
+        {
+          "label": "duration",
+          "name": "value_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "audio_vae",
+          "name": "vae_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_mode",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_model_strength",
+          "name": "strength_model_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_steps",
+          "name": "value_2",
+          "type": "INT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            314
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "Realistic live-action documentary look, cinematic aerial footage, natural light, slight film grain.\n\nScene: spring 2020 lockdown, a wide aerial view over a European landscape of fields, rivers and a distant city skyline under a deep clean blue sky with no airplanes and no contrails. In the foreground, a regional airport where a long row of passenger airplanes stands parked and idle on the apron, engines off, no movement, no people. Crisp visibility to the horizon, calm.\n\nCamera: slow, steady aerial drift sideways past the parked airplanes, high altitude. One continuous shot, no cuts.\n\nAudio: high wind, distant birds, silence where engines would be. No music, no dialogue, no voices.",
+        1344,
+        768,
+        4.0,
+        20200405,
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors",
+        false,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        1,
+        8
+      ],
+      "widgets_values_named": {
+        "prompt": "Realistic live-action documentary look, cinematic aerial footage, natural light, slight film grain.\n\nScene: spring 2020 lockdown, a wide aerial view over a European landscape of fields, rivers and a distant city skyline under a deep clean blue sky with no airplanes and no contrails. In the foreground, a regional airport where a long row of passenger airplanes stands parked and idle on the apron, engines off, no movement, no people. Crisp visibility to the horizon, calm.\n\nCamera: slow, steady aerial drift sideways past the parked airplanes, high altitude. One continuous shot, no cuts.\n\nAudio: high wind, distant birds, silence where engines would be. No music, no dialogue, no voices.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 4.0,
+        "noise_seed": 20200405,
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "value": false,
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model_1": 1,
+        "value_2": 8
+      },
+      "title": "Shot 05 — Clear sky"
+    },
+    {
+      "id": 209,
+      "type": "SaveVideo",
+      "pos": [
+        -660,
+        6360
+      ],
+      "size": [
+        1070,
+        357.875
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 314
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "the_pause/final/shot05",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "the_pause/final/shot05",
+        "format": "auto",
+        "codec": "auto"
+      },
+      "title": "Save Shot 05"
+    },
+    {
+      "id": 210,
+      "type": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+      "pos": [
+        540,
+        6360
+      ],
+      "size": [
+        480,
+        630
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 315
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 316
+        },
+        {
+          "label": "duration",
+          "name": "value_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "audio_vae",
+          "name": "vae_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_mode",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_model_strength",
+          "name": "strength_model_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_steps",
+          "name": "value_2",
+          "type": "INT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            317
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "Realistic live-action documentary look, cinematic, natural light, slight film grain.\n\nScene: the same two-lane asphalt country road along the edge of a European forest, shown in time-lapse as normal life returns after lockdown. The shot opens on the quiet empty road in soft morning light, a red deer hind standing at the forest edge. Then traffic floods back onto the road in fast motion, cars and trucks streaming in both directions, headlights streaking. In the sky above, airplane contrails multiply one after another. The red deer turns away and bounds back into the trees. The light gradually turns grey and hazy.\n\nCamera: low-angle locked-off time-lapse from the roadside, road running diagonally through the frame, no camera movement. One continuous shot, no cuts.\n\nAudio: starts with birdsong, then traffic noise swells quickly to a loud rumble, engines, a distant jet. No music, no dialogue, no voices.",
+        1344,
+        768,
+        5.0,
+        20200406,
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors",
+        false,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        1,
+        8
+      ],
+      "widgets_values_named": {
+        "prompt": "Realistic live-action documentary look, cinematic, natural light, slight film grain.\n\nScene: the same two-lane asphalt country road along the edge of a European forest, shown in time-lapse as normal life returns after lockdown. The shot opens on the quiet empty road in soft morning light, a red deer hind standing at the forest edge. Then traffic floods back onto the road in fast motion, cars and trucks streaming in both directions, headlights streaking. In the sky above, airplane contrails multiply one after another. The red deer turns away and bounds back into the trees. The light gradually turns grey and hazy.\n\nCamera: low-angle locked-off time-lapse from the roadside, road running diagonally through the frame, no camera movement. One continuous shot, no cuts.\n\nAudio: starts with birdsong, then traffic noise swells quickly to a loud rumble, engines, a distant jet. No music, no dialogue, no voices.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 5.0,
+        "noise_seed": 20200406,
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "value": false,
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model_1": 1,
+        "value_2": 8
+      },
+      "title": "Shot 06 — Restart"
+    },
+    {
+      "id": 211,
+      "type": "SaveVideo",
+      "pos": [
+        1060,
+        6360
+      ],
+      "size": [
+        1070,
+        357.875
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 317
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "the_pause/final/shot06",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "the_pause/final/shot06",
+        "format": "auto",
+        "codec": "auto"
+      },
+      "title": "Save Shot 06"
+    },
+    {
+      "id": 212,
+      "type": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+      "pos": [
+        -1180,
+        7120
+      ],
+      "size": [
+        480,
+        630
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 318
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 319
+        },
+        {
+          "label": "duration",
+          "name": "value_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "audio_vae",
+          "name": "vae_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_mode",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_model_strength",
+          "name": "strength_model_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_steps",
+          "name": "value_2",
+          "type": "INT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            320
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: the same European old-town street reimagined in the year 2030. Four-storey brick and plaster facades now covered with climbing plants and solar panels on the rooftops, a quiet modern electric tram glides down the tram line, wide bicycle lanes full of cyclists, young trees and flower beds where car lanes used to be, people walking calmly and sitting outside cafes. At a small pocket park on the corner, a roe deer grazes at the edge of the grass. Clean bright blue sky, warm sunlight, hopeful.\n\nCamera: locked-off tripod wide shot at eye level from the pavement, looking down the length of the street, no camera movement. One continuous shot, no cuts.\n\nAudio: calm city ambience, bicycle bells, soft electric tram hum, birdsong, quiet chatter without words. No music, no dialogue.",
+        1344,
+        768,
+        4.0,
+        20200407,
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors",
+        false,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        1,
+        8
+      ],
+      "widgets_values_named": {
+        "prompt": "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: the same European old-town street reimagined in the year 2030. Four-storey brick and plaster facades now covered with climbing plants and solar panels on the rooftops, a quiet modern electric tram glides down the tram line, wide bicycle lanes full of cyclists, young trees and flower beds where car lanes used to be, people walking calmly and sitting outside cafes. At a small pocket park on the corner, a roe deer grazes at the edge of the grass. Clean bright blue sky, warm sunlight, hopeful.\n\nCamera: locked-off tripod wide shot at eye level from the pavement, looking down the length of the street, no camera movement. One continuous shot, no cuts.\n\nAudio: calm city ambience, bicycle bells, soft electric tram hum, birdsong, quiet chatter without words. No music, no dialogue.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 4.0,
+        "noise_seed": 20200407,
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "value": false,
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model_1": 1,
+        "value_2": 8
+      },
+      "title": "Shot 07 — 2030"
+    },
+    {
+      "id": 213,
+      "type": "SaveVideo",
+      "pos": [
+        -660,
+        7120
+      ],
+      "size": [
+        1070,
+        357.875
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 320
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "the_pause/final/shot07",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "the_pause/final/shot07",
+        "format": "auto",
+        "codec": "auto"
+      },
+      "title": "Save Shot 07"
+    },
+    {
+      "id": 214,
+      "type": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+      "pos": [
+        540,
+        7120
+      ],
+      "size": [
+        480,
+        630
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 321
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 322
+        },
+        {
+          "label": "duration",
+          "name": "value_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "audio_vae",
+          "name": "vae_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_mode",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_model_strength",
+          "name": "strength_model_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model_1"
+          },
+          "link": null
+        },
+        {
+          "label": "turbo_steps",
+          "name": "value_2",
+          "type": "INT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            323
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: a vertical split screen with a thin black line down the middle, both halves showing the same European old-town street from the same eye-level angle. Left half: grey smoggy rush hour, traffic jam, crowded pavements, contrails in a hazy sky. Right half: the green 2030 version of the street, electric tram, cyclists, trees, climbing plants, clean blue sky. Both halves keep moving, then slowly and evenly fade to complete black at the same time, neither side wins.\n\nCamera: locked-off, no camera movement on either side. One continuous shot, no cuts.\n\nAudio: traffic noise on one side and birdsong on the other, both fading to complete silence. No music, no dialogue, no voices.",
+        1344,
+        768,
+        6.0,
+        20200408,
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors",
+        false,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        1,
+        8
+      ],
+      "widgets_values_named": {
+        "prompt": "Realistic live-action documentary look, cinematic, natural light, slight film grain, shot on 35mm.\n\nScene: a vertical split screen with a thin black line down the middle, both halves showing the same European old-town street from the same eye-level angle. Left half: grey smoggy rush hour, traffic jam, crowded pavements, contrails in a hazy sky. Right half: the green 2030 version of the street, electric tram, cyclists, trees, climbing plants, clean blue sky. Both halves keep moving, then slowly and evenly fade to complete black at the same time, neither side wins.\n\nCamera: locked-off, no camera movement on either side. One continuous shot, no cuts.\n\nAudio: traffic noise on one side and birdsong on the other, both fading to complete silence. No music, no dialogue, no voices.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 6.0,
+        "noise_seed": 20200408,
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "value": false,
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model_1": 1,
+        "value_2": 8
+      },
+      "title": "Shot 08 — Which one?"
+    },
+    {
+      "id": 215,
+      "type": "SaveVideo",
+      "pos": [
+        1060,
+        7120
+      ],
+      "size": [
+        1070,
+        357.875
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 323
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "the_pause/final/shot08",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "the_pause/final/shot08",
+        "format": "auto",
+        "codec": "auto"
+      },
+      "title": "Save Shot 08"
+    },
+    {
+      "id": 216,
+      "type": "MarkdownNote",
+      "pos": [
+        -2080,
+        5640
+      ],
+      "size": [
+        450,
+        420
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: The Pause — edit notes",
+      "properties": {},
+      "widgets_values": [
+        "## The Pause — final settings\n\n- Resolution 16:9, megapixels 1.0 (1344x768), 24 fps\n- turbo_mode **false** on every shot (full quality)\n- Output: `the_pause/final/shot01` … `shot08`\n- Total runtime 35 s (4+4+4+4+4+5+4+6)\n\nTip: select a shot's nodes and press Ctrl+B to bypass it, so you can queue one shot at a time.\n\n## Edit notes (shot 08)\nText cards over the black end of shot 08:\n\"What if the pause had become a transition?\" then, 1 s later and smaller, \"2030 is four years away.\"\n\nFallback if the split screen isn't clean: composite the left half from shot01 and the right half from shot07 in the editor."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      300,
+      115,
+      0,
+      200,
+      2,
+      "INT"
+    ],
+    [
+      301,
+      115,
+      1,
+      200,
+      3,
+      "INT"
+    ],
+    [
+      302,
+      200,
+      0,
+      201,
+      0,
+      "VIDEO"
+    ],
+    [
+      303,
+      115,
+      0,
+      202,
+      2,
+      "INT"
+    ],
+    [
+      304,
+      115,
+      1,
+      202,
+      3,
+      "INT"
+    ],
+    [
+      305,
+      202,
+      0,
+      203,
+      0,
+      "VIDEO"
+    ],
+    [
+      306,
+      115,
+      0,
+      204,
+      2,
+      "INT"
+    ],
+    [
+      307,
+      115,
+      1,
+      204,
+      3,
+      "INT"
+    ],
+    [
+      308,
+      204,
+      0,
+      205,
+      0,
+      "VIDEO"
+    ],
+    [
+      309,
+      115,
+      0,
+      206,
+      2,
+      "INT"
+    ],
+    [
+      310,
+      115,
+      1,
+      206,
+      3,
+      "INT"
+    ],
+    [
+      311,
+      206,
+      0,
+      207,
+      0,
+      "VIDEO"
+    ],
+    [
+      312,
+      115,
+      0,
+      208,
+      2,
+      "INT"
+    ],
+    [
+      313,
+      115,
+      1,
+      208,
+      3,
+      "INT"
+    ],
+    [
+      314,
+      208,
+      0,
+      209,
+      0,
+      "VIDEO"
+    ],
+    [
+      315,
+      115,
+      0,
+      210,
+      2,
+      "INT"
+    ],
+    [
+      316,
+      115,
+      1,
+      210,
+      3,
+      "INT"
+    ],
+    [
+      317,
+      210,
+      0,
+      211,
+      0,
+      "VIDEO"
+    ],
+    [
+      318,
+      115,
+      0,
+      212,
+      2,
+      "INT"
+    ],
+    [
+      319,
+      115,
+      1,
+      212,
+      3,
+      "INT"
+    ],
+    [
+      320,
+      212,
+      0,
+      213,
+      0,
+      "VIDEO"
+    ],
+    [
+      321,
+      115,
+      0,
+      214,
+      2,
+      "INT"
+    ],
+    [
+      322,
+      115,
+      1,
+      214,
+      3,
+      "INT"
+    ],
+    [
+      323,
+      214,
+      0,
+      215,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Shot 01 — Rush (0:00–0:04) · 4s · seed 20200401",
+      "bounding": [
+        -1200,
+        4780,
+        1630,
+        720
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Shot 02 — Stillness (0:04–0:08) · 4s · seed 20200402",
+      "bounding": [
+        520,
+        4780,
+        1630,
+        720
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Shot 03 — Outside (0:08–0:12) · 4s · seed 20200403",
+      "bounding": [
+        -1200,
+        5540,
+        1630,
+        720
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Shot 04 — Roaming (0:12–0:16) · 4s · seed 20200414",
+      "bounding": [
+        520,
+        5540,
+        1630,
+        720
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Shot 05 — Clear sky (0:16–0:20) · 4s · seed 20200405",
+      "bounding": [
+        -1200,
+        6300,
+        1630,
+        720
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Shot 06 — Restart (0:20–0:25) · 5s · seed 20200406",
+      "bounding": [
+        520,
+        6300,
+        1630,
+        720
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "Shot 07 — 2030 (0:25–0:29) · 4s · seed 20200407",
+      "bounding": [
+        -1200,
+        7060,
+        1630,
+        720
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "Shot 08 — Which one? (0:29–0:35) · 6s · seed 20200408",
+      "bounding": [
+        520,
+        7060,
+        1630,
+        720
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "79dd8a95-ce9d-4c14-b264-2162e8bec5ce",
+        "version": 1,
+        "state": {
+          "lastGroupId": 6,
+          "lastNodeId": 140,
+          "lastLinkId": 248,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Image to Video (MiniMax H3)",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            -2560,
+            4790,
+            171.62109375,
+            348
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            2130,
+            5070,
+            128,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "d6eaa195-2266-4016-b7ed-b2d17a3e53c2",
+            "name": "first_frame",
+            "type": "IMAGE",
+            "linkIds": [
+              195
+            ],
+            "pos": [
+              -2412.37890625,
+              4814
+            ]
+          },
+          {
+            "id": "03b95567-f496-4279-9d38-989dd34fa882",
+            "name": "last_frame",
+            "type": "IMAGE",
+            "linkIds": [
+              196
+            ],
+            "pos": [
+              -2412.37890625,
+              4834
+            ]
+          },
+          {
+            "id": "d7302ca7-24ed-44c4-8ac9-736540dab7fb",
+            "name": "prompt",
+            "type": "STRING",
+            "linkIds": [
+              197
+            ],
+            "pos": [
+              -2412.37890625,
+              4854
+            ]
+          },
+          {
+            "id": "709e2d94-3172-496f-ad86-7d672f3df568",
+            "name": "width",
+            "type": "INT",
+            "linkIds": [
+              200
+            ],
+            "pos": [
+              -2412.37890625,
+              4874
+            ]
+          },
+          {
+            "id": "8205b85b-19bb-47f6-8418-89cd42940c1d",
+            "name": "height",
+            "type": "INT",
+            "linkIds": [
+              201
+            ],
+            "pos": [
+              -2412.37890625,
+              4894
+            ]
+          },
+          {
+            "id": "a40e5e96-4307-4a8e-a4f8-13a27d4bc9d3",
+            "name": "value_1",
+            "type": "FLOAT",
+            "linkIds": [
+              206
+            ],
+            "label": "duration",
+            "pos": [
+              -2412.37890625,
+              4914
+            ]
+          },
+          {
+            "id": "9f8734bc-c2b3-43b0-911e-e89560e8b777",
+            "name": "noise_seed",
+            "type": "INT",
+            "linkIds": [
+              207
+            ],
+            "pos": [
+              -2412.37890625,
+              4934
+            ]
+          },
+          {
+            "id": "9a6d2811-673c-47e0-aa94-dda7c83621e4",
+            "name": "unet_name",
+            "type": "COMBO",
+            "linkIds": [
+              221
+            ],
+            "pos": [
+              -2412.37890625,
+              4954
+            ]
+          },
+          {
+            "id": "7100a787-5536-4002-840b-1d2fd071010a",
+            "name": "clip_name",
+            "type": "COMBO",
+            "linkIds": [
+              227
+            ],
+            "pos": [
+              -2412.37890625,
+              4974
+            ]
+          },
+          {
+            "id": "d40632fd-e0ae-4319-b85d-5479db4d6e11",
+            "name": "vae_name",
+            "type": "COMBO",
+            "linkIds": [
+              223
+            ],
+            "pos": [
+              -2412.37890625,
+              4994
+            ]
+          },
+          {
+            "id": "2992852c-4b20-439a-8771-c866ec1996e6",
+            "name": "vae_name_1",
+            "type": "COMBO",
+            "linkIds": [
+              224
+            ],
+            "label": "audio_vae",
+            "pos": [
+              -2412.37890625,
+              5014
+            ]
+          },
+          {
+            "id": "5fa5fd85-5efc-45ea-b938-2767dc6a375b",
+            "name": "value",
+            "type": "BOOLEAN",
+            "linkIds": [
+              240
+            ],
+            "label": "turbo_mode",
+            "pos": [
+              -2412.37890625,
+              5034
+            ]
+          },
+          {
+            "id": "1c18d558-5904-486b-84d8-43b080a2d4dd",
+            "name": "lora_name",
+            "type": "COMBO",
+            "linkIds": [
+              243
+            ],
+            "pos": [
+              -2412.37890625,
+              5054
+            ]
+          },
+          {
+            "id": "a7b69463-a7b0-4eae-991d-c333e4e8d5cd",
+            "name": "strength_model_1",
+            "type": "FLOAT",
+            "linkIds": [
+              244
+            ],
+            "label": "turbo_model_strength",
+            "pos": [
+              -2412.37890625,
+              5074
+            ]
+          },
+          {
+            "id": "4a02c41e-7fa6-4faf-9018-7a09de5245d8",
+            "name": "value_2",
+            "type": "INT",
+            "linkIds": [
+              245
+            ],
+            "label": "turbo_steps",
+            "pos": [
+              -2412.37890625,
+              5094
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "adb2611c-e490-4fca-8067-b718c992f8cc",
+            "name": "VIDEO",
+            "type": "VIDEO",
+            "linkIds": [
+              168
+            ],
+            "localized_name": "VIDEO",
+            "pos": [
+              2154,
+              5094
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 119,
+            "type": "VAELoader",
+            "pos": [
+              -2020,
+              5210
+            ],
+            "size": [
+              640,
+              100
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "vae_name",
+                "name": "vae_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "vae_name"
+                },
+                "link": 223
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "VAE",
+                "name": "VAE",
+                "type": "VAE",
+                "links": [
+                  8,
+                  190
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "VAELoader",
+              "models": [
+                {
+                  "name": "minimax_h3_video_vae_int8_convrot.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+                  "directory": "vae"
+                }
+              ]
+            },
+            "widgets_values": [
+              "minimax_h3_video_vae_int8_convrot.safetensors"
+            ],
+            "widgets_values_named": {
+              "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+            }
+          },
+          {
+            "id": 120,
+            "type": "VAELoader",
+            "pos": [
+              -2020,
+              5360
+            ],
+            "size": [
+              650,
+              100
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "vae_name",
+                "name": "vae_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "vae_name"
+                },
+                "link": 224
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "VAE",
+                "name": "VAE",
+                "type": "VAE",
+                "links": [
+                  23
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "VAELoader",
+              "models": [
+                {
+                  "name": "minimax_h3_audio_vae_fp32.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors",
+                  "directory": "vae"
+                }
+              ]
+            },
+            "widgets_values": [
+              "minimax_h3_audio_vae_fp32.safetensors"
+            ],
+            "widgets_values_named": {
+              "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+            }
+          },
+          {
+            "id": 121,
+            "type": "VAEDecodeAudio",
+            "pos": [
+              760,
+              4990
+            ],
+            "size": [
+              230,
+              80
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "samples",
+                "name": "samples",
+                "type": "LATENT",
+                "link": 226
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 23
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "AUDIO",
+                "name": "AUDIO",
+                "type": "AUDIO",
+                "links": [
+                  166
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "VAEDecodeAudio"
+            }
+          },
+          {
+            "id": 122,
+            "type": "VAEDecode",
+            "pos": [
+              760,
+              4850
+            ],
+            "size": [
+              230,
+              80
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "samples",
+                "name": "samples",
+                "type": "LATENT",
+                "link": 225
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 8
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  167
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "VAEDecode"
+            }
+          },
+          {
+            "id": 123,
+            "type": "KSamplerSelect",
+            "pos": [
+              0,
+              4950
+            ],
+            "size": [
+              370,
+              90
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "SAMPLER",
+                "name": "SAMPLER",
+                "type": "SAMPLER",
+                "links": [
+                  16
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "KSamplerSelect"
+            },
+            "widgets_values": [
+              "res_multistep"
+            ],
+            "widgets_values_named": {
+              "sampler_name": "res_multistep"
+            }
+          },
+          {
+            "id": 124,
+            "type": "BasicScheduler",
+            "pos": [
+              0,
+              5100
+            ],
+            "size": [
+              370,
+              150
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 234
+              },
+              {
+                "localized_name": "steps",
+                "name": "steps",
+                "type": "INT",
+                "widget": {
+                  "name": "steps"
+                },
+                "link": 235
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "SIGMAS",
+                "name": "SIGMAS",
+                "type": "SIGMAS",
+                "links": [
+                  18
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "BasicScheduler"
+            },
+            "widgets_values": [
+              "simple",
+              4,
+              1
+            ],
+            "widgets_values_named": {
+              "scheduler": "simple",
+              "steps": 4,
+              "denoise": 1
+            }
+          },
+          {
+            "id": 125,
+            "type": "SamplerCustomAdvanced",
+            "pos": [
+              420,
+              4780
+            ],
+            "size": [
+              230,
+              390
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "noise",
+                "name": "noise",
+                "type": "NOISE",
+                "link": 40
+              },
+              {
+                "localized_name": "guider",
+                "name": "guider",
+                "type": "GUIDER",
+                "link": 12
+              },
+              {
+                "localized_name": "sampler",
+                "name": "sampler",
+                "type": "SAMPLER",
+                "link": 16
+              },
+              {
+                "localized_name": "sigmas",
+                "name": "sigmas",
+                "type": "SIGMAS",
+                "link": 18
+              },
+              {
+                "localized_name": "latent_image",
+                "name": "latent_image",
+                "type": "LATENT",
+                "link": 188
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "output",
+                "name": "output",
+                "type": "LATENT",
+                "links": [
+                  225,
+                  226
+                ]
+              },
+              {
+                "localized_name": "denoised_output",
+                "name": "denoised_output",
+                "type": "LATENT",
+                "links": null
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "SamplerCustomAdvanced"
+            }
+          },
+          {
+            "id": 126,
+            "type": "BasicGuider",
+            "pos": [
+              0,
+              4820
+            ],
+            "size": [
+              360,
+              80
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 241
+              },
+              {
+                "localized_name": "conditioning",
+                "name": "conditioning",
+                "type": "CONDITIONING",
+                "link": 187
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "GUIDER",
+                "name": "GUIDER",
+                "type": "GUIDER",
+                "links": [
+                  12
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "BasicGuider"
+            }
+          },
+          {
+            "id": 127,
+            "type": "UNETLoader",
+            "pos": [
+              -2020,
+              4650
+            ],
+            "size": [
+              640,
+              120
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "unet_name",
+                "name": "unet_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "unet_name"
+                },
+                "link": 221
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  229,
+                  232
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "UNETLoader",
+              "models": [
+                {
+                  "name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+                  "directory": "diffusion_models"
+                }
+              ]
+            },
+            "widgets_values": [
+              "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+              "default"
+            ],
+            "widgets_values_named": {
+              "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+              "weight_dtype": "default"
+            }
+          },
+          {
+            "id": 128,
+            "type": "CLIPLoader",
+            "pos": [
+              -2020,
+              5010
+            ],
+            "size": [
+              640,
+              150
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip_name",
+                "name": "clip_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "clip_name"
+                },
+                "link": 227
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "CLIP",
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [
+                  189
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "CLIPLoader",
+              "models": [
+                {
+                  "name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                  "directory": "text_encoders"
+                }
+              ]
+            },
+            "widgets_values": [
+              "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+              "minimax",
+              "default"
+            ],
+            "widgets_values_named": {
+              "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+              "type": "minimax",
+              "device": "default"
+            }
+          },
+          {
+            "id": 129,
+            "type": "RandomNoise",
+            "pos": [
+              0,
+              4660
+            ],
+            "size": [
+              360,
+              90
+            ],
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "noise_seed",
+                "name": "noise_seed",
+                "type": "INT",
+                "widget": {
+                  "name": "noise_seed"
+                },
+                "link": 207
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "NOISE",
+                "name": "NOISE",
+                "type": "NOISE",
+                "links": [
+                  40
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "RandomNoise"
+            },
+            "widgets_values": [
+              1,
+              "fixed"
+            ],
+            "widgets_values_named": {
+              "noise_seed": 1,
+              "control_after_generate": "fixed"
+            }
+          },
+          {
+            "id": 130,
+            "type": "CreateVideo",
+            "pos": [
+              1090,
+              4890
+            ],
+            "size": [
+              270,
+              140
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "images",
+                "name": "images",
+                "type": "IMAGE",
+                "link": 167
+              },
+              {
+                "localized_name": "audio",
+                "name": "audio",
+                "shape": 7,
+                "type": "AUDIO",
+                "link": 166
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "VIDEO",
+                "name": "VIDEO",
+                "type": "VIDEO",
+                "links": [
+                  168
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "CreateVideo"
+            },
+            "widgets_values": [
+              24,
+              8
+            ],
+            "widgets_values_named": {
+              "fps": 24,
+              "bit_depth": 8
+            }
+          },
+          {
+            "id": 131,
+            "type": "MiniMaxH3ImageToVideo",
+            "pos": [
+              -1300,
+              4740
+            ],
+            "size": [
+              430,
+              550
+            ],
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 189
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 190
+              },
+              {
+                "localized_name": "first_frame",
+                "name": "first_frame",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 195
+              },
+              {
+                "localized_name": "last_frame",
+                "name": "last_frame",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 196
+              },
+              {
+                "localized_name": "prompt",
+                "name": "prompt",
+                "type": "STRING",
+                "widget": {
+                  "name": "prompt"
+                },
+                "link": 197
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 200
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 201
+              },
+              {
+                "localized_name": "length",
+                "name": "length",
+                "type": "INT",
+                "widget": {
+                  "name": "length"
+                },
+                "link": 199
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "positive",
+                "name": "positive",
+                "type": "CONDITIONING",
+                "links": [
+                  187
+                ]
+              },
+              {
+                "localized_name": "LATENT",
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [
+                  188
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "MiniMaxH3ImageToVideo"
+            },
+            "widgets_values": [
+              "Vaporwave title sequence look: pink and blue gradient palette, VHS tracking artifacts, Greek statue motifs, chrome palm trees, RGB chromatic aberration, lo-fi retro atmosphere, mood languid and nostalgic.\n\nTimeline:\n[0s-1s] VHS static opens the frame, the title \"COMFYUI\" appears with RGB split and a slight horizontal jitter.\n[1s-2.5s] Hard cut, a Greek plaster bust close-up, pink-purple gradient sky, a pixelated sun.\n[2.5s-4s] Clean \"STARRING\" credits appear, \"LATENT\" and \"CONTROLNET\" each shown exactly once.\n[4s-5s] Final card \"DIRECTED BY COMFYUI\" holds, one VHS tracking glitch settling into stability.\n\nHard cuts only, transitions landing with tape jumps, no push-ins, no dissolves.\n\nAudio: lo-fi vaporwave score, slow drum machine with soft bass, VHS tape-noise sample joins at 2.5s, melody fading for the last 1s.\n\nAll text must be clearly legible, do not misspell English, no Chinese characters, do not repeat names or job titles, no soft dissolves, no subtitle bars.",
+              1344,
+              768,
+              73
+            ],
+            "widgets_values_named": {
+              "prompt": "Vaporwave title sequence look: pink and blue gradient palette, VHS tracking artifacts, Greek statue motifs, chrome palm trees, RGB chromatic aberration, lo-fi retro atmosphere, mood languid and nostalgic.\n\nTimeline:\n[0s-1s] VHS static opens the frame, the title \"COMFYUI\" appears with RGB split and a slight horizontal jitter.\n[1s-2.5s] Hard cut, a Greek plaster bust close-up, pink-purple gradient sky, a pixelated sun.\n[2.5s-4s] Clean \"STARRING\" credits appear, \"LATENT\" and \"CONTROLNET\" each shown exactly once.\n[4s-5s] Final card \"DIRECTED BY COMFYUI\" holds, one VHS tracking glitch settling into stability.\n\nHard cuts only, transitions landing with tape jumps, no push-ins, no dissolves.\n\nAudio: lo-fi vaporwave score, slow drum machine with soft bass, VHS tape-noise sample joins at 2.5s, melody fading for the last 1s.\n\nAll text must be clearly legible, do not misspell English, no Chinese characters, do not repeat names or job titles, no soft dissolves, no subtitle bars.",
+              "width": 1344,
+              "height": 768,
+              "length": 73
+            }
+          },
+          {
+            "id": 132,
+            "type": "ComfyMathExpression",
+            "pos": [
+              -1710,
+              5740
+            ],
+            "size": [
+              360,
+              170
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "a",
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 205
+              },
+              {
+                "label": "b",
+                "localized_name": "values.b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  199
+                ]
+              },
+              {
+                "localized_name": "BOOL",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+            ],
+            "widgets_values_named": {
+              "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+            }
+          },
+          {
+            "id": 133,
+            "type": "PrimitiveFloat",
+            "pos": [
+              -2020,
+              5740
+            ],
+            "size": [
+              270,
+              90
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 206
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": [
+                  205
+                ]
+              }
+            ],
+            "title": "Float (duration)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "PrimitiveFloat"
+            },
+            "widgets_values": [
+              2
+            ],
+            "widgets_values_named": {
+              "value": 2
+            }
+          },
+          {
+            "id": 134,
+            "type": "LoraLoaderModelOnly",
+            "pos": [
+              -2020,
+              4830
+            ],
+            "size": [
+              640,
+              130
+            ],
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 229
+              },
+              {
+                "localized_name": "lora_name",
+                "name": "lora_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "lora_name"
+                },
+                "link": 243
+              },
+              {
+                "localized_name": "strength_model",
+                "name": "strength_model",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "strength_model"
+                },
+                "link": 244
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  233
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "LoraLoaderModelOnly",
+              "models": [
+                {
+                  "name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+                  "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/main/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+                  "directory": "loras"
+                }
+              ]
+            },
+            "widgets_values": [
+              "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+              1
+            ],
+            "widgets_values_named": {
+              "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+              "strength_model": 1
+            }
+          },
+          {
+            "id": 135,
+            "type": "ComfySwitchNode",
+            "pos": [
+              -400,
+              4790
+            ],
+            "size": [
+              270,
+              110
+            ],
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "on_false",
+                "name": "on_false",
+                "type": "MODEL",
+                "link": 232
+              },
+              {
+                "localized_name": "on_true",
+                "name": "on_true",
+                "type": "MODEL",
+                "link": 233
+              },
+              {
+                "localized_name": "switch",
+                "name": "switch",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "switch"
+                },
+                "link": 238
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "output",
+                "name": "output",
+                "type": "MODEL",
+                "links": [
+                  234,
+                  241
+                ]
+              }
+            ],
+            "title": "If/Else Switch (Model)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "ComfySwitchNode"
+            },
+            "widgets_values": [
+              false
+            ],
+            "widgets_values_named": {
+              "switch": false
+            }
+          },
+          {
+            "id": 136,
+            "type": "ComfySwitchNode",
+            "pos": [
+              -400,
+              4980
+            ],
+            "size": [
+              270,
+              110
+            ],
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "on_false",
+                "name": "on_false",
+                "type": "INT",
+                "link": 236
+              },
+              {
+                "localized_name": "on_true",
+                "name": "on_true",
+                "type": "INT",
+                "link": 237
+              },
+              {
+                "localized_name": "switch",
+                "name": "switch",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "switch"
+                },
+                "link": 239
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "output",
+                "name": "output",
+                "type": "INT",
+                "links": [
+                  235
+                ]
+              }
+            ],
+            "title": "If/Else Switch (Steps)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "ComfySwitchNode"
+            },
+            "widgets_values": [
+              false
+            ],
+            "widgets_values_named": {
+              "switch": false
+            }
+          },
+          {
+            "id": 137,
+            "type": "PrimitiveInt",
+            "pos": [
+              -750,
+              4920
+            ],
+            "size": [
+              270,
+              90
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  236
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "PrimitiveInt"
+            },
+            "widgets_values": [
+              20,
+              "fixed"
+            ],
+            "widgets_values_named": {
+              "value": 20,
+              "fixed": "fixed"
+            }
+          },
+          {
+            "id": 138,
+            "type": "PrimitiveInt",
+            "pos": [
+              -750,
+              5060
+            ],
+            "size": [
+              270,
+              90
+            ],
+            "flags": {},
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "INT",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 245
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  237
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "PrimitiveInt"
+            },
+            "widgets_values": [
+              6,
+              "fixed"
+            ],
+            "widgets_values_named": {
+              "value": 6,
+              "fixed": "fixed"
+            }
+          },
+          {
+            "id": 139,
+            "type": "PrimitiveBoolean",
+            "pos": [
+              -750,
+              5210
+            ],
+            "size": [
+              270,
+              90
+            ],
+            "flags": {},
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 240
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOOLEAN",
+                "name": "BOOLEAN",
+                "type": "BOOLEAN",
+                "links": [
+                  238,
+                  239
+                ]
+              }
+            ],
+            "title": "Boolean (Enable Lightning LoRA)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "PrimitiveBoolean"
+            },
+            "widgets_values": [
+              false
+            ],
+            "widgets_values_named": {
+              "value": false
+            },
+            "color": "#322",
+            "bgcolor": "#533"
+          }
+        ],
+        "groups": [
+          {
+            "id": 1,
+            "title": "Models",
+            "bounding": [
+              -2050,
+              4540,
+              700,
+              980
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 2,
+            "title": "Sampling",
+            "bounding": [
+              -30,
+              4540,
+              700,
+              800
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 3,
+            "title": "Conditioning",
+            "bounding": [
+              -1320,
+              4540,
+              480,
+              800
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 4,
+            "title": "Decoding and create video",
+            "bounding": [
+              700,
+              4540,
+              700,
+              800
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 6,
+            "title": "Switch",
+            "bounding": [
+              -810,
+              4540,
+              750,
+              800
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          }
+        ],
+        "links": [
+          {
+            "id": 23,
+            "origin_id": 120,
+            "origin_slot": 0,
+            "target_id": 121,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
+            "id": 8,
+            "origin_id": 119,
+            "origin_slot": 0,
+            "target_id": 122,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
+            "id": 40,
+            "origin_id": 129,
+            "origin_slot": 0,
+            "target_id": 125,
+            "target_slot": 0,
+            "type": "NOISE"
+          },
+          {
+            "id": 12,
+            "origin_id": 126,
+            "origin_slot": 0,
+            "target_id": 125,
+            "target_slot": 1,
+            "type": "GUIDER"
+          },
+          {
+            "id": 16,
+            "origin_id": 123,
+            "origin_slot": 0,
+            "target_id": 125,
+            "target_slot": 2,
+            "type": "SAMPLER"
+          },
+          {
+            "id": 18,
+            "origin_id": 124,
+            "origin_slot": 0,
+            "target_id": 125,
+            "target_slot": 3,
+            "type": "SIGMAS"
+          },
+          {
+            "id": 188,
+            "origin_id": 131,
+            "origin_slot": 1,
+            "target_id": 125,
+            "target_slot": 4,
+            "type": "LATENT"
+          },
+          {
+            "id": 187,
+            "origin_id": 131,
+            "origin_slot": 0,
+            "target_id": 126,
+            "target_slot": 1,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 167,
+            "origin_id": 122,
+            "origin_slot": 0,
+            "target_id": 130,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 166,
+            "origin_id": 121,
+            "origin_slot": 0,
+            "target_id": 130,
+            "target_slot": 1,
+            "type": "AUDIO"
+          },
+          {
+            "id": 189,
+            "origin_id": 128,
+            "origin_slot": 0,
+            "target_id": 131,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 190,
+            "origin_id": 119,
+            "origin_slot": 0,
+            "target_id": 131,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
+            "id": 168,
+            "origin_id": 130,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "VIDEO"
+          },
+          {
+            "id": 195,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 131,
+            "target_slot": 2,
+            "type": "IMAGE"
+          },
+          {
+            "id": 196,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 131,
+            "target_slot": 3,
+            "type": "IMAGE"
+          },
+          {
+            "id": 197,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 131,
+            "target_slot": 4,
+            "type": "STRING"
+          },
+          {
+            "id": 199,
+            "origin_id": 132,
+            "origin_slot": 1,
+            "target_id": 131,
+            "target_slot": 7,
+            "type": "INT"
+          },
+          {
+            "id": 200,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 131,
+            "target_slot": 5,
+            "type": "INT"
+          },
+          {
+            "id": 201,
+            "origin_id": -10,
+            "origin_slot": 4,
+            "target_id": 131,
+            "target_slot": 6,
+            "type": "INT"
+          },
+          {
+            "id": 205,
+            "origin_id": 133,
+            "origin_slot": 0,
+            "target_id": 132,
+            "target_slot": 0,
+            "type": "FLOAT"
+          },
+          {
+            "id": 206,
+            "origin_id": -10,
+            "origin_slot": 5,
+            "target_id": 133,
+            "target_slot": 0,
+            "type": "FLOAT"
+          },
+          {
+            "id": 207,
+            "origin_id": -10,
+            "origin_slot": 6,
+            "target_id": 129,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 221,
+            "origin_id": -10,
+            "origin_slot": 7,
+            "target_id": 127,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 223,
+            "origin_id": -10,
+            "origin_slot": 9,
+            "target_id": 119,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 224,
+            "origin_id": -10,
+            "origin_slot": 10,
+            "target_id": 120,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 225,
+            "origin_id": 125,
+            "origin_slot": 0,
+            "target_id": 122,
+            "target_slot": 0,
+            "type": "LATENT"
+          },
+          {
+            "id": 226,
+            "origin_id": 125,
+            "origin_slot": 0,
+            "target_id": 121,
+            "target_slot": 0,
+            "type": "LATENT"
+          },
+          {
+            "id": 227,
+            "origin_id": -10,
+            "origin_slot": 8,
+            "target_id": 128,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 229,
+            "origin_id": 127,
+            "origin_slot": 0,
+            "target_id": 134,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 232,
+            "origin_id": 127,
+            "origin_slot": 0,
+            "target_id": 135,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 233,
+            "origin_id": 134,
+            "origin_slot": 0,
+            "target_id": 135,
+            "target_slot": 1,
+            "type": "MODEL"
+          },
+          {
+            "id": 234,
+            "origin_id": 135,
+            "origin_slot": 0,
+            "target_id": 124,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 235,
+            "origin_id": 136,
+            "origin_slot": 0,
+            "target_id": 124,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 236,
+            "origin_id": 137,
+            "origin_slot": 0,
+            "target_id": 136,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 237,
+            "origin_id": 138,
+            "origin_slot": 0,
+            "target_id": 136,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 238,
+            "origin_id": 139,
+            "origin_slot": 0,
+            "target_id": 135,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 239,
+            "origin_id": 139,
+            "origin_slot": 0,
+            "target_id": 136,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 240,
+            "origin_id": -10,
+            "origin_slot": 11,
+            "target_id": 139,
+            "target_slot": 0,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 241,
+            "origin_id": 135,
+            "origin_slot": 0,
+            "target_id": 126,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 243,
+            "origin_id": -10,
+            "origin_slot": 12,
+            "target_id": 134,
+            "target_slot": 1,
+            "type": "COMBO"
+          },
+          {
+            "id": 244,
+            "origin_id": -10,
+            "origin_slot": 13,
+            "target_id": 134,
+            "target_slot": 2,
+            "type": "FLOAT"
+          },
+          {
+            "id": 245,
+            "origin_id": -10,
+            "origin_slot": 14,
+            "target_id": 138,
+            "target_slot": 0,
+            "type": "INT"
+          }
+        ],
+        "extra": {}
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.49.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ds": {
+      "scale": 0.35,
+      "offset": [
+        2700,
+        -4500
+      ]
+    }
+  },
+  "version": 0.4
+}
