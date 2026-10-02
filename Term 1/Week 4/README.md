@@ -23,13 +23,13 @@ _List the files, or link to them. Notebook exports, screenshots, scripts._
 > Your tool and your SDG for this hackathon are announced at the **start of Friday's class**.
 > Write them down here once you know them.
 
-**Project title:**
+**Project title: The Pause**
 
-**My pair partner:**
+**My pair partner:Jesse Schwarz**
 
-**Tool we had to use:**
+**Tool we had to use: ComfyUI**
 
-**SDG we had to address:**
+**SDG we had to address:SDG 13 Climate Action**
 
 **What problem does it solve, and for whom?**
 _Name a real, specific user. "Everyone" is not a user._
@@ -38,10 +38,10 @@ _Name a real, specific user. "Everyone" is not a user._
 _Two or three sentences. What can a user actually do with it?_
 
 **Link to the live thing (if any):**
-_Deployed URL, workflow export, video demo - whatever proves it works._
+https://youtu.be/VAcPg8OOOgk
 
 **How do I run it?**
-_Short instructions so someone else can start it._
+You can play the YouTube video.
 
 **Who did what?**
 _Be honest about the split of work between you and your partner._
