@@ -42,16 +42,18 @@ https://youtu.be/VAcPg8OOOgk
 **How do I run it?**
 - **Watch:** open the YouTube link above.
 - **Regenerate the shots:**
-  1. Install Comfy Desktop (ComfyUI v0.38.1) and open the workflow `video_minimax_h3_t2v` from `hackathon/` (MiniMax H3 text-to-video).
-  2. Use the fixed settings for every final shot: 16:9, 1.0 megapixels (1344x768), `turbo_mode` false, 24 fps.
-  3. For each shot, copy the prompt, `duration`, `noise_seed` and `filename_prefix` from the shot list `hackathon/the_pause_prompts.md` and queue it. Outputs land in `the_pause/final/`.
-  4. Put the eight clips in order in a video editor and add the two text cards over the black end of shot 08.
+  1. Install [Comfy Desktop](https://www.comfy.org/download) (we used ComfyUI v0.38.1) and start it.
+  2. Import the workflow: drag `hackathon/video_minimax_h3_t2v.json` from your file explorer onto the ComfyUI canvas, or use **Workflow → Open** (Ctrl+O / Cmd+O) and select the file. The full MiniMax H3 text-to-video graph loads with all nodes and connections.
+  3. If nodes show up red or ComfyUI reports missing models, install what it asks for (missing custom nodes via the Manager, model files into the matching `models/` folder) and reload the workflow.
+  4. Check the fixed settings for every final shot: 16:9, 1.0 megapixels (1344x768), `turbo_mode` false, 24 fps.
+  5. For each shot, copy the prompt, `duration`, `noise_seed` and `filename_prefix` from the shot list `hackathon/the_pause_prompts.md` into the workflow and click **Queue/Run**. Outputs land in ComfyUI's `output/the_pause/final/` folder.
+  6. Put the eight clips in order in a video editor and add the two text cards over the black end of shot 08.
 
 **Who did what?**
-_TODO: honest split between Sam and Jesse (e.g. research and sources, writing the shot list and prompts, rendering in ComfyUI, editing and text cards, upload, slides)._
+Jesse and I sat together to write a small storyboard. After this we let AI improve this for our realistic look and ideas for shots. Jesse later improved the storyboard. Sam rendered all the shots, edited shots, made the voiceover and made the presentation.
 
 **Ethical reflection - what are the risks of your tool? Who could it harm?**
-The biggest risk is that our film looks like real documentary footage but none of it is real. We deliberately prompted for a "realistic live-action documentary look", so if a clip is cut out and shared without context, someone could take an AI-generated deer on an empty road as evidence of something that never happened, which feeds exactly the kind of "nature is healing" fake videos that went viral in 2020. That is why the YouTube description must say clearly that every shot is AI-generated. The story also simplifies: the lockdown effects on nature were real but mixed and temporary (Tucker et al. found some animals moved more, others less), and the "pause" came from a crisis that cost lives and jobs, so we have to be careful not to make lockdowns look like a desirable climate policy. Our ending asks what a *transition* would look like, not for another lockdown. Finally, generating video is not free for the planet: every draft and final render used a lot of GPU power, and the model was trained on footage whose creators did not consent, which is an uncomfortable trade-off for a film about climate action.
+The biggest risk is that our film looks like real documentary footage but none of it is real. We deliberately prompted for a "realistic live-action documentary look", so if a clip is cut out and shared without context, someone could take an AI-generated deer on an empty road as evidence of something that never happened, which feeds exactly the kind of "nature is healing" fake videos.
 
 ### Checklist
 - [ ] Prototype code (or export / workflow file) is in `hackathon/`
@@ -65,12 +67,12 @@ The biggest risk is that our film looks like real documentary footage but none o
 
 *Only fill this in for the week your group was selected to present. You need at least **one** of these across the whole term.*
 
-- [ ] My group presented in this week
-- [ ] Slides are in `presentation/`
-- [ ] Proof of the live demo is in `presentation/` (recording, screenshots, or link)
+- [ x ] My group presented in this week
+- [ x ] Slides are in `presentation/`
+- [ x ] Proof of the live demo is in `presentation/` (recording, screenshots, or link)
 
 **How did it go? What would I do differently next time?**
-_TODO: only if we presented this week._
+I would add the ethical reflection into the presentation.
 
 ---
 
