@@ -43,7 +43,7 @@ https://youtu.be/VAcPg8OOOgk
 - **Watch:** open the YouTube link above.
 - **Regenerate the shots:**
   1. Install [Comfy Desktop](https://www.comfy.org/download) (we used ComfyUI v0.38.1) and start it.
-  2. Import the workflow: drag `hackathon/video_minimax_h3_t2v.json` from your file explorer onto the ComfyUI canvas, or use **Workflow → Open** (Ctrl+O / Cmd+O) and select the file. The full MiniMax H3 text-to-video graph loads with all nodes and connections.
+  2. Import the workflow: drag `Term 1/Week 4/hackathon/the_pause_final.json` from your file explorer onto the ComfyUI canvas, or use **Workflow → Open** (Ctrl+O / Cmd+O) and select the file. The full MiniMax H3 text-to-video graph loads with all nodes and connections.
   3. If nodes show up red or ComfyUI reports missing models, install what it asks for (missing custom nodes via the Manager, model files into the matching `models/` folder) and reload the workflow.
   4. Check the fixed settings for every final shot: 16:9, 1.0 megapixels (1344x768), `turbo_mode` false, 24 fps.
   5. For each shot, copy the prompt, `duration`, `noise_seed` and `filename_prefix` from the shot list `hackathon/the_pause_prompts.md` into the workflow and click **Queue/Run**. Outputs land in ComfyUI's `output/the_pause/final/` folder.
