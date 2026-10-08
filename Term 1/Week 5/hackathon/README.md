@@ -2,6 +2,8 @@
 
 **AI for Good · Hackathon 5 · SDG 8 Decent Work and Economic Growth**
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SkillfulRheyme4/ai4g-portfolio-sambam/blob/main/Term%201/Week%205/hackathon/model_showdown.ipynb)
+
 We predict which Dutch residents find it difficult to live on their household income, so that a municipality's debt-support team can offer help before debts build up. We compare three tuned scikit-learn classifiers (KNN, logistic regression and a decision tree) with a baseline that always says "no".
 
 **Recommendation:** logistic regression, but only for sending a voluntary offer of help.
@@ -81,9 +83,9 @@ We recommend **logistic regression**:
 
 ## How to run
 
-1. Open `model_showdown.ipynb` in Google Colab or Jupyter.
+1. Open the notebook in Google Colab with the **Open in Colab** button at the top, or open `model_showdown.ipynb` in Jupyter.
 2. Click **Runtime → Run all** (Colab) or **Run All** (Jupyter / VS Code).
 
-The notebook reads the data from `data/ess_nl_rounds4-11.csv`.
+The notebook downloads the data from this repository (`data/ess_nl_rounds4-11.csv`) via `DATA_URL` in the first code cell, so no manual steps are needed.
 
 **Packages:** Python 3.12, pandas, numpy, scikit-learn, matplotlib. *TODO: fill in the versions (see the last cell of the notebook).*
