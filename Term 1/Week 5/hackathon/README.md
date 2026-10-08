@@ -105,19 +105,10 @@ We recommend **logistic regression**:
 
 **What a mistake costs the person.** A false negative means a struggling household gets no early help, and debts can grow until a landlord or energy company reports arrears. A false positive means an unnecessary letter, which can feel intrusive or stigmatising, especially for people born outside NL, who get letters more often and may feel singled out after the childcare-benefits scandal.
 
-**Consent and licence.** The respondents agreed to take part in a scientific survey, not to being scored by a municipality. The CC BY-NC-SA 4.0 licence allows our non-commercial, educational use with attribution; it would not allow commercial use.
-
 **What we did about these risks:**
 1. We chose F2 and a low threshold (10%), so that fewer struggling people are missed.
 2. We left sex, country of birth and income out of the model.
 3. We checked the errors per sex, country of birth, main activity and survey year, and tested whether country of birth hides in the other columns.
-4. We wrote the warning below.
-
-> **⚠ Do not use this model**
-> - for any decision with negative consequences for a resident: cutting benefits, fraud checks, sanctions or credit;
-> - as the only way to find people: it should complement payment-arrears signals, not replace them;
-> - for retired people without extra attention, because it misses most struggling pensioners;
-> - in real use without first testing it on recent data from the municipality itself (it already works worse in 2020–2023) and doing a privacy impact assessment (DPIA).
 
 ---
 
