@@ -35,7 +35,7 @@ Since 2021 a Dutch municipality must contact residents when a landlord, energy s
 A Jupyter notebook that takes the European Social Survey (Netherlands, 2008–2023, 13,890 people) from raw file to a fair comparison of three tuned classifiers against two baselines, with F2 as the main metric. We recommend logistic regression: it finds 2 out of 3 struggling people (recall 0.67, test F2 0.49) without using income, sex or country of birth. The last cell takes a made-up resident and returns a prediction and a probability.
 
 **Link to the live thing (if any):**
-[Open the notebook in Google Colab](https://colab.research.google.com/github/SkillfulRheyme4/ai4g-portfolio-sambam/blob/main/Term%201/Week%205/hackathon/model_showdown.ipynb) · slides: [`hackathon/presentation.pdf`](hackathon/presentation.pdf) · full write-up: [`hackathon/README.md`](hackathon/README.md)
+[Open the notebook in Google Colab](https://colab.research.google.com/github/SkillfulRheyme4/ai4g-portfolio-sambam/blob/main/Term%201/Week%205/hackathon/model_showdown.ipynb) · slides: [`hackathon/present`](presentation/presentation.pdf) · full write-up: [`hackathon/README.md`](hackathon/README.md)
 
 **How do I run it?**
 Click the Colab link above and choose **Runtime → Run all** (about 1–2 minutes, no installs needed). In Jupyter: open `hackathon/model_showdown.ipynb` and choose **Restart and Run All**; the data is in `hackathon/data/`.
