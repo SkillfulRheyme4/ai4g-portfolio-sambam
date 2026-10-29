@@ -38,4 +38,3 @@ pip install streamlit requests pillow
 streamlit run app.py
 ```
 The app opens in your browser. Paste your Roboflow private API key in the sidebar; the model ID `hornet-checkv2/1` is filled in already. Optionally, put both in `.streamlit/secrets.toml` (see the `.example` file).
-Demo video: [video link] · Slides: [slides link]
