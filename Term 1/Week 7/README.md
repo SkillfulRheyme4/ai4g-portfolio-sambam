@@ -44,10 +44,11 @@ _Deployed URL, workflow export, video demo - whatever proves it works._
 _Short instructions so someone else can start it._
 
 **Who did what?**
-_Be honest about the split of work between you and your partner._
+We brainstormed together on our idea for the hackathon. With the help of AI we scraped images from the internet. Sam trained the model, removed pictures with AI for improvements of quality from the model. Sam provided a website where the user can upload images to see what species they've found. Sam will make the demo video. Min contributed to making the PowerPoint
 
 **Ethical reflection - what are the risks of your tool? Who could it harm?**
-_Every hackathon requires this. One honest paragraph beats three vague ones._
+The first risk is that the app invites people to get closer to insects. To take a good photo, someone might walk up to a hornet, a bee or a nest. They could get stung, which is dangerous for people with allergies, or they could disturb the very animals we want to protect. We don’t want anyone to harm or interfere with bees or any other species, so the app tells people to keep a few meters away, to take the photo from a distance, and never to touch or remove a nest themselves.
+
 
 ### Checklist
 - [ ] Prototype code (or export / workflow file) is in `hackathon/`
